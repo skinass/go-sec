@@ -31,10 +31,7 @@ func main() {
 		username := r.FormValue("username")
 		password := r.FormValue("password")
 
-		// SELECT id FROM user WHERE username=a.sulaev AND password=123
-		query := "SELECT id FROM user WHERE username=" + username + " AND password=" + password
-
-		row := db.QueryRow(query)
+		row := db.QueryRow("SELECT id FROM user WHERE username=? AND password=?", username, password)
 		var id int
 		if err := row.Scan(&id); err != nil {
 			fmt.Println(err)

@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-var authTOken = flag.String("auth_token", "1fb2625222d0640551d640165afb9dfc", "token to check Auth-Token header")
+var authTOken = flag.String("auth_token", "", "token to check Auth-Token header")
 
 func main() {
 	http.HandleFunc("/whats_time", func(w http.ResponseWriter, r *http.Request) {
