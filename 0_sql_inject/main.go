@@ -42,7 +42,10 @@ func main() {
 		w.Write([]byte("ok. your id is " + strconv.Itoa(id)))
 	})
 
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":80", nil) // on err, change to another port
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // http://localhost/login?username=sulaev&password=123123
